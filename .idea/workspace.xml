@@ -40,10 +40,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="brendan.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="brendan.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/brendan.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.6243386" vertical-offset="10416" max-vertical-offset="18510">
+                <state vertical-scroll-proportion="-13.111111" vertical-offset="10416" max-vertical-offset="18510">
                   <caret line="718" column="14" selection-start-line="718" selection-start-column="14" selection-end-line="718" selection-end-column="14" />
                   <folding>
                     <marker date="1423133699000" expanded="true" signature="7531:8081" placeholder="[...]" />
@@ -86,11 +86,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="brendan.scss" pinned="false" current-in-tab="false">
+          <file leaf-file-name="brendan.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/brendan.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.1960783" vertical-offset="1208" max-vertical-offset="2745">
-                  <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+                <state vertical-scroll-proportion="0.62062615" vertical-offset="1673" max-vertical-offset="2745">
+                  <caret line="134" column="17" selection-start-line="134" selection-start-column="17" selection-end-line="134" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -106,10 +106,10 @@
         <option value="$PROJECT_DIR$/brendan.css" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/list.js" />
-        <option value="$PROJECT_DIR$/brendan.scss" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/functions.js" />
         <option value="$PROJECT_DIR$/brendan.js" />
+        <option value="$PROJECT_DIR$/brendan.scss" />
       </list>
     </option>
   </component>
@@ -684,14 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/brendan.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1960783" vertical-offset="1208" max-vertical-offset="2745">
-          <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="2892" max-vertical-offset="3120">
@@ -710,7 +702,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/brendan.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6243386" vertical-offset="10416" max-vertical-offset="18510">
+        <state vertical-scroll-proportion="-13.111111" vertical-offset="10416" max-vertical-offset="18510">
           <caret line="718" column="14" selection-start-line="718" selection-start-column="14" selection-end-line="718" selection-end-column="14" />
           <folding>
             <marker date="1423133699000" expanded="true" signature="7531:8081" placeholder="[...]" />
@@ -729,6 +721,14 @@
             <marker date="1423133699000" expanded="true" signature="40750:41794" placeholder="{...}" />
             <marker date="1423133699000" expanded="true" signature="41333:41536" placeholder="{&quot;geodesic&quot;: true...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brendan.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62062615" vertical-offset="1673" max-vertical-offset="2745">
+          <caret line="134" column="17" selection-start-line="134" selection-start-column="17" selection-end-line="134" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
