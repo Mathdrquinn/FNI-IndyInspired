@@ -110,7 +110,7 @@ $(document).ready(function() {
 
         /* Polyline
         //////////////////////////////////////////////*/
-        window.meridianCoords = [
+        meridianCoords = [
             new google.maps.LatLng(39.912409780019786, -86.15787506103516),
             new google.maps.LatLng(39.88012326613326, -86.15785360336304),
             new google.maps.LatLng(39.877488599164494, -86.15787506103516),
@@ -182,9 +182,7 @@ $(document).ready(function() {
             strokeWeight: 2
         });
 
-        meridianPoly.setMap(map);
-
-        window.meridian = {
+        meridian = {
             name: 'meridian',
             el: $('#' + this.name),
             center: {lat: 39.76841991769641, lng: -86.15808963775635},
@@ -201,24 +199,32 @@ $(document).ready(function() {
             stndardColor: standardColor,
             highlightColor: highlightColor,
             marker: null,
+            constructPoly: function() {
+                meridianPoly.setMap(map);
+                if (this.next) {
+                    this.next.constructPoly();
+                }
+            },
             constructMarker: function () {
                 var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
 
                 this.marker = new google.maps.Marker({
                     position: myLatlng,
                     title:"Meridian",
-                    animation: google.maps.Animation.BOUNCE,
+                    
                     icon: 'images/marker.png'
                 });
 
                 this.marker.setMap(map);
-                setTimeout(function() {meridian.marker.setAnimation(null)}, 1550);
+
+                if (this.next) {
+                    this.next.constructMarker();
+                }
             },
             resetMarker: function () {
-                this.marker.setMap(null);
+                 
             },
             highlight: function() {
-                meridianPoly.setMap(null);
                 meridianPoly.setMap(null);
 
                 this.poly.strokeColor = this.highlightColor;
@@ -226,11 +232,10 @@ $(document).ready(function() {
                 this.poly.strokeWeight = 10;
                 meridianPoly = new google.maps.Polyline(this.poly);
                 meridianPoly.setMap(map);
-                this.constructMarker();
+
                 this.panTo();
             },
             reset: function() {
-                meridianPoly.setMap(null);
                 meridianPoly.setMap(null);
                 if (this.marker) {this.resetMarker();};
 
@@ -277,9 +282,7 @@ $(document).ready(function() {
             strokeWeight: 2
         });
 
-        broadRipplePoly.setMap(map);
-
-        window.broadRipple = {
+        broadRipple = {
             name: 'broadRipple',
             el: $('#broadripple'),
             center: {lat: 39.86850990258248, lng: -86.13418579101562},
@@ -297,21 +300,30 @@ $(document).ready(function() {
             highlightColor: highlightColor,
             polyMap: broadRipplePoly,
             marker: null,
+            constructPoly: function() {
+                broadRipplePoly.setMap(map);
+                if (this.next) {
+                    this.next.constructPoly();
+                }
+            },
             constructMarker: function () {
                 var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
 
                 this.marker = new google.maps.Marker({
                     position: myLatlng,
                     title:"Broad Ripple!",
-                    animation: google.maps.Animation.BOUNCE,
+                    
                     icon: 'images/marker.png'
                 });
 
                 this.marker.setMap(map);
-                setTimeout(function() {broadRipple.marker.setAnimation(null)}, 1550);
+
+                if (this.next) {
+                    this.next.constructMarker();
+                }
             },
             resetMarker: function () {
-                this.marker.setMap(null);
+                 
             },
             highlight: function() {
                 broadRipplePoly.setMap(null);
@@ -322,7 +334,7 @@ $(document).ready(function() {
                 this.poly.strokeWeight = 10;
                 this.polyMap = new google.maps.Polyline(this.poly);
                 this.polyMap.setMap(map);
-                this.constructMarker();
+
                 this.panTo();
             },
             reset: function() {
@@ -411,7 +423,7 @@ $(document).ready(function() {
             strokeWeight: 2
         });
 
-        collegePoly.setMap(map);
+        //collegePoly.setMap(map);
 
         //Foxhill Coords
         var foxHillCoords = [
@@ -451,9 +463,7 @@ $(document).ready(function() {
             strokeWeight: 2
         });
 
-        foxHillPoly.setMap(map);
-
-        window.foxHill = {
+        foxHill = {
             name: 'foxHill',
             el: $('#foxHill'),
             center: {lat: 39.86475483576405, lng: -86.18375301361084},
@@ -471,21 +481,30 @@ $(document).ready(function() {
             highlightColor: highlightColor,
             polyMap: foxHillPoly,
             marker: null,
+            constructPoly: function() {
+                foxHillPoly.setMap(map);
+                if (this.next) {
+                    this.next.constructPoly();
+                }
+            },
             constructMarker: function () {
                 var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
 
                 this.marker = new google.maps.Marker({
                     position: myLatlng,
                     title:"Fox Hill",
-                    animation: google.maps.Animation.BOUNCE,
+                    
                     icon: 'images/marker.png'
                 });
 
                 this.marker.setMap(map);
-                setTimeout(function() {foxHill.marker.setAnimation(null)}, 1550);
+
+                if (this.next) {
+                    this.next.constructMarker();
+                }
             },
             resetMarker: function () {
-                this.marker.setMap(null);
+                 
             },
             highlight: function() {
                 foxHillPoly.setMap(null);
@@ -496,7 +515,7 @@ $(document).ready(function() {
                 this.poly.strokeWeight = 10;
                 this.polyMap = new google.maps.Polyline(this.poly);
                 this.polyMap.setMap(map);
-                this.constructMarker();
+
                 this.panTo();
             },
             reset: function() {
@@ -643,9 +662,7 @@ $(document).ready(function() {
             strokeWeight: 2
         });
 
-        kesslerPoly.setMap(map);
-
-        window.kessler = {
+        kessler = {
             name: 'kessler',
             el: $('#kessler'),
             center: {lat: 39.862053695703196, lng: -86.14397048950195},
@@ -663,21 +680,30 @@ $(document).ready(function() {
             highlightColor: highlightColor,
             polyMap: kesslerPoly,
             marker: null,
+            constructPoly: function() {
+                kesslerPoly.setMap(map);
+                if (this.next) {
+                     this.next.constructPoly();
+                }
+            },
             constructMarker: function () {
                 var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
 
                 this.marker = new google.maps.Marker({
                     position: myLatlng,
                     title:"Kessler",
-                    animation: google.maps.Animation.BOUNCE,
+                    
                     icon: 'images/marker.png'
                 });
 
                 this.marker.setMap(map);
-                setTimeout(function() {kessler.marker.setAnimation(null)}, 1550);
+
+                if (this.next) {
+                    this.next.constructMarker();
+                }
             },
             resetMarker: function () {
-                this.marker.setMap(null);
+                 
             },
             highlight: function() {
                 kesslerPoly.setMap(null);
@@ -688,7 +714,7 @@ $(document).ready(function() {
                 this.poly.strokeWeight = 10;
                 this.polyMap = new google.maps.Polyline(this.poly);
                 this.polyMap.setMap(map);
-                this.constructMarker();
+
                 this.panTo();
             },
             reset: function() {
@@ -711,7 +737,7 @@ $(document).ready(function() {
             }
         };
 
-        window.butlerCoords = [
+        butlerCoords = [
             new google.maps.LatLng(39.842602657268465, -86.1642050743103),
 
             new google.maps.LatLng(39.84657310385206, -86.16429090499878),
@@ -816,7 +842,7 @@ $(document).ready(function() {
         ];
 
         // Construct the polygon.
-        window.butlerPolygon = new google.maps.Polygon({
+        butlerPolygon = new google.maps.Polygon({
             paths: butlerCoords,
             strokeColor: '#92D300',
             strokeOpacity: 0.8,
@@ -824,8 +850,6 @@ $(document).ready(function() {
             fillColor: '#92D300',
             fillOpacity: 0.35
         });
-
-        butlerPolygon.setMap(map);
 
         butler = {
             name: 'butler',
@@ -847,21 +871,30 @@ $(document).ready(function() {
             highlightColor: highlightColor,
             polyMap: butlerPolygon,
             marker: null,
+            constructPoly: function() {
+                butlerPolygon.setMap(map);
+                if (this.next) {
+                     this.next.constructPoly();
+                }
+            },
             constructMarker: function () {
                 var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
 
                 this.marker = new google.maps.Marker({
                     position: myLatlng,
                     title:"Butler",
-                    animation: google.maps.Animation.BOUNCE,
+                    
                     icon: 'images/marker.png'
                 });
 
                 this.marker.setMap(map);
-                setTimeout(function() {butler.marker.setAnimation(null)}, 1550);
+
+                if (this.next) {
+                    this.next.constructMarker();
+                }
             },
             resetMarker: function () {
-                this.marker.setMap(null);
+                 
             },
             highlight: function() {
                 butlerPolygon.setMap(null)
@@ -873,7 +906,7 @@ $(document).ready(function() {
                 this.poly.fillColor = highlightColor;
                 this.polyMap = new google.maps.Polygon(this.poly);
                 this.polyMap.setMap(map);
-                this.constructMarker();
+
                 this.panTo();
             },
             reset: function() {
@@ -955,9 +988,7 @@ $(document).ready(function() {
             fillOpacity: 0.35
         });
 
-        fountainSquarePolygon.setMap(map);
-
-        window.fountainSquare = {
+        fountainSquare = {
             name: 'fountainSquare',
             el: $('#fountainSquare'),
             center: {lat: 39.7521722541479, lng: -86.13959312438965},
@@ -977,21 +1008,30 @@ $(document).ready(function() {
             highlightColor: highlightColor,
             polyMap: fountainSquarePolygon,
             marker: null,
+            constructPoly: function() {
+                fountainSquarePolygon.setMap(map);
+                if (this.next) {
+                     this.next.constructPoly();
+                }
+            },
             constructMarker: function () {
                 var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
 
                 this.marker = new google.maps.Marker({
                     position: myLatlng,
                     title:"Fountain Square",
-                    animation: google.maps.Animation.BOUNCE,
+                    
                     icon: 'images/marker.png'
                 });
 
                 this.marker.setMap(map);
-                setTimeout(function() {fountainSquare.marker.setAnimation(null)}, 1550);
+
+                if (this.next) {
+                    this.next.constructMarker();
+                }
             },
             resetMarker: function () {
-                this.marker.setMap(null);
+                 
             },
             highlight: function() {
                 fountainSquarePolygon.setMap(null)
@@ -1003,7 +1043,7 @@ $(document).ready(function() {
                 this.poly.fillColor = highlightColor;
                 this.polyMap = new google.maps.Polygon(this.poly);
                 this.polyMap.setMap(map);
-                this.constructMarker();
+
                 this.panTo();
             },
             reset: function() {
@@ -1050,9 +1090,7 @@ $(document).ready(function() {
                 fillOpacity: 0.35
             });
 
-        tarkingtonPolygon.setMap(map);
-
-        window.tarkington = {
+        tarkington = {
             name: 'tarkington',
             el: $('#tarkington'),
             center: {lat: 39.827324696760776, lng: -86.1568021774292},
@@ -1072,21 +1110,30 @@ $(document).ready(function() {
             highlightColor: highlightColor,
             polyMap: tarkingtonPolygon,
             marker: null,
+            constructPoly: function() {
+                tarkingtonPolygon.setMap(map);
+                if (this.next) {
+                     this.next.constructPoly();
+                }
+            },
             constructMarker: function () {
                 var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
 
                 this.marker = new google.maps.Marker({
                     position: myLatlng,
                     title:"Tarkington",
-                    animation: google.maps.Animation.BOUNCE,
+                    
                     icon: 'images/marker.png'
                 });
 
                 this.marker.setMap(map);
-                setTimeout(function() {tarkington.marker.setAnimation(null)}, 1550);
+
+                if (this.next) {
+                    this.next.constructMarker();
+                }
             },
             resetMarker: function () {
-                this.marker.setMap(null);
+                 
             },
             highlight: function() {
                 tarkingtonPolygon.setMap(null)
@@ -1098,7 +1145,7 @@ $(document).ready(function() {
                 this.poly.fillColor = highlightColor;
                 this.polyMap = new google.maps.Polygon(this.poly);
                 this.polyMap.setMap(map);
-                this.constructMarker();
+
                 this.panTo();
             },
             reset: function() {
@@ -1140,6 +1187,9 @@ $(document).ready(function() {
         meridian.next = tarkington;
         tarkington.previous = meridian;
         tarkington.next = null;
+
+        broadRipple.constructPoly();
+        broadRipple.constructMarker();
         ///* Add Coordinate on click
         // //////////////////////////////////////////////*/
         //google.maps.event.addListener(map, 'click', function(event) {
@@ -1177,72 +1227,3 @@ $(document).ready(function() {
     google.maps.event.addDomListener(window, 'load', initialize);
 
 });
-
-/*
- Constructor
- ///////////////////////////////////////////
-function MapItem (coords, stroke, strokeOpacity, weight, fill, fillOpacity, prev, next, type) {
-    this.coords = coords;
-    this.polyObj = new google.maps.Polygon({
-        paths: coords,
-        strokeColor: stroke,
-        strokeOpacity: strokeOpacity,
-        strokeWeight: weight,
-        fillColor: fill,
-        fillOpacity: fillOpacity;
-});
-this.setType = function(type) {
-    if(type === 'polyline') {
-        console.log(type)
-    }
-    else if (type === 'polygon') {
-
-    }
-    else {
-        console.log('dont go here')
-    }
-}
-this.set = function () {
-    this.polyObj.setMap(map);
-}
-this.next = next;
-this.prev = prev;
-this.highlight = function () {
-
-}
-}
-
-// Set the Polygon Coords
-var tarkington = new MapItem(
-    [
-
-        new google.maps.LatLng(39.828422345457334, -86.15922689437866),
-
-        new google.maps.LatLng(39.826329511015935, -86.1592161655426),
-
-        new google.maps.LatLng(39.82635422990499, -86.15684509277344),
-
-        new google.maps.LatLng(39.82847178172062, -86.15687727928162),
-    ],
-    '#92D300',
-    0.8,
-    2,
-    '#92D300',
-    0.35,
-    meridianPoly,
-    'undefined',
-    'polygon'
-);
-
-// Construct the polygon.
-tarkingtonePolygon = new google.maps.Polygon({
-    paths: tarkingtonCoords,
-    strokeColor: '#92D300',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: '#92D300',
-    fillOpacity: 0.35
-});
-
-tarkingtonePolygon.setMap(map);
-*/
