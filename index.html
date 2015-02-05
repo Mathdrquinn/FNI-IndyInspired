@@ -27,12 +27,14 @@
         </div> <!-- End Intro Text-->
 
         <div class="row">
-            <div id="map-canvas" class="large-6 medium-6 columns fixed-map">
+            <div id="map-canvas" class="large-6 medium-6 columns">
 
             </div>
             <div id="glasses-container" class="large-6 medium-6 columns">
+
+
                 <!-- Begin Pair-->
-                <div class="row pair-container" data-lat="39.86850990258248" data-lng="-86.13418579101562" data-zoom="15">
+                <div id="broadRipple" class="row pair-container" data-name="broadRipple" data-lat="39.86850990258248" data-lng="-86.13418579101562" data-zoom="15">
                     <div class="pair-img large-12 medium-12 small-12 columns">
                         <h3><span>Broad Ripple</span></h3>
                         <div class="pair-img-container">
@@ -50,8 +52,10 @@
 
                     <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
                 </div> <!-- End Pair-->
+
+
                 <!-- Begin Pair-->
-                <div class="row pair-container" data-lat="39.862053695703196" data-lng="-86.14397048950195" data-zoom="13">
+                <div id="kessler"class="row pair-container" data-name="kessler" data-lat="39.862053695703196" data-lng="-86.14397048950195" data-zoom="13">
                     <div class="pair-img large-12 medium-12 small-12 columns">
                         <h3>Kessler</h3>
                         <div class="pair-img-container">
@@ -69,8 +73,10 @@
 
                     <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
                 </div> <!-- End Pair-->
+
+
                 <!-- Begin Pair-->
-                <div class="row pair-container" data-lat="39.83882609235166" data-lng="-86.17130756378174" data-zoom="14">
+                <div id="butler" class="row pair-container" data-name="butler" data-lat="39.83882609235166" data-lng="-86.17130756378174" data-zoom="14">
                     <div class="pair-img large-12 medium-12 small-12 columns">
                         <h3>Butler</h3>
                         <div class="pair-img-container">
@@ -88,8 +94,10 @@
 
                     <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
                 </div> <!-- End Pair-->
+
+
                 <!-- Begin Pair-->
-                <div class="row pair-container" data-lat="39.86475483576405" data-lng="-86.18375301361084" data-zoom="14">
+                <div id="foxHill" class="row pair-container" data-name="foxHill" data-lat="39.86475483576405" data-lng="-86.18375301361084" data-zoom="14">
                     <div class="pair-img large-12 medium-12 small-12 columns">
                         <h3>Fox Hill</h3>
                         <div class="pair-img-container">
@@ -107,8 +115,10 @@
 
                     <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
                 </div> <!-- End Pair-->
+
+
                 <!-- Begin Pair-->
-                <div class="row pair-container" data-lat="39.7521722541479" data-lng="-86.13959312438965" data-zoom="15">
+                <div id="fountainSquare" class="row pair-container" data-name="fountainSquare" data-lat="39.7521722541479" data-lng="-86.13959312438965" data-zoom="15">
                     <div class="pair-img large-12 medium-12 small-12 columns">
                         <h3>Fountain Square</h3>
                         <div class="pair-img-container">
@@ -126,8 +136,10 @@
 
                     <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
                 </div> <!-- End Pair-->
+
+
                 <!-- Begin Pair-->
-                <div class="row pair-container" data-lat="39.76841991769641" data-lng="-86.15808963775635" data-zoom="15">
+                <div id="meridian" class="row pair-container" data-name="meridian" data-lat="39.76841991769641" data-lng="-86.15808963775635" data-zoom="15">
                     <div class="pair-img large-12 medium-12 small-12 columns">
                         <h3>Meridian</h3>
                         <div class="pair-img-container">
@@ -145,8 +157,10 @@
 
                     <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
                 </div> <!-- End Pair-->
+
+
                 <!-- Begin Pair-->
-                <div class="row pair-container" data-lat="39.827324696760776" data-lng="-86.1568021774292" data-zoom="16">
+                <div id="tarkington" class="row pair-container" data-name="tarkington" data-lat="39.827324696760776" data-lng="-86.1568021774292" data-zoom="16">
                     <div class="pair-img large-12 medium-12 small-12 columns">
                         <h3>Tarkington</h3>
                         <div class="pair-img-container">
@@ -164,8 +178,16 @@
 
                     <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
                 </div> <!-- End Pair-->
+
+
             </div> <!-- End .glasses-container -->
-        </div>
+        </div> <!-- end .row-->
+
+
+        <footer>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aut, debitis delectus deserunt dolorem ducimus earum expedita explicabo fuga iste, maxime modi, molestiae mollitia quidem rem repudiandae sequi ut voluptatibus?
+        </footer>
+
     </div> <!-- End .container-->
 
     <div id="list">
@@ -174,6 +196,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv5IPzK4LwWs4dgdXCnOfXLFf7C0TBfSA"></script>
+    <script src="list.js"></script>
     <script src="brendan.js"></script>
     <script src="functions.js"></script>
 </body>

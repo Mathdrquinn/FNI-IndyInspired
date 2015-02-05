@@ -1,5 +1,6 @@
 console.log('brendan!')
-
+var standardColor = '#92D300';
+var highlightColor = '#FD7C08';
 
 $(document).ready(function() {
 
@@ -183,6 +184,71 @@ $(document).ready(function() {
 
         meridianPoly.setMap(map);
 
+        window.meridian = {
+            name: 'meridian',
+            el: $('#' + this.name),
+            center: {lat: 39.76841991769641, lng: -86.15808963775635},
+            zoom: 15,
+            coords: meridianCoords,
+            type: 'line',
+            poly: {
+                path: meridianCoords,
+                geodesic: true,
+                strokeColor: '#92D300',
+                strokeOpacity: 1,
+                strokeWeight: 2
+            },
+            stndardColor: standardColor,
+            highlightColor: highlightColor,
+            marker: null,
+            constructMarker: function () {
+                var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
+
+                this.marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title:"Meridian",
+                    animation: google.maps.Animation.BOUNCE,
+                    icon: 'images/marker.png'
+                });
+
+                this.marker.setMap(map);
+                setTimeout(function() {meridian.marker.setAnimation(null)}, 1550);
+            },
+            resetMarker: function () {
+                this.marker.setMap(null);
+            },
+            highlight: function() {
+                meridianPoly.setMap(null);
+                meridianPoly.setMap(null);
+
+                this.poly.strokeColor = this.highlightColor;
+                this.poly.strokeOpacity = 0.5;
+                this.poly.strokeWeight = 10;
+                meridianPoly = new google.maps.Polyline(this.poly);
+                meridianPoly.setMap(map);
+                this.constructMarker();
+                this.panTo();
+            },
+            reset: function() {
+                meridianPoly.setMap(null);
+                meridianPoly.setMap(null);
+                if (this.marker) {this.resetMarker();};
+
+                this.poly.strokeColor = '#92D300';
+                this.poly.strokeOpacity = 1;
+                this.poly.strokeWeight = 2;
+                meridianPoly = new google.maps.Polyline(this.poly);
+                meridianPoly.setMap(map);
+            },
+            setZoom: function () {
+                map.setZoom(this.zoom)
+            },
+            panTo: function () {
+                map.panTo(this.center);
+                this.setZoom();
+            }
+        };
+
         var broadRippleCoords = [
             new google.maps.LatLng(39.86963339756685, -86.14609479904175),
 
@@ -212,6 +278,72 @@ $(document).ready(function() {
         });
 
         broadRipplePoly.setMap(map);
+
+        window.broadRipple = {
+            name: 'broadRipple',
+            el: $('#broadripple'),
+            center: {lat: 39.86850990258248, lng: -86.13418579101562},
+            zoom: 15,
+            coords: broadRippleCoords,
+            type: 'line',
+            poly: {
+                path: broadRippleCoords,
+                geodesic: true,
+                strokeColor: '#92D300',
+                strokeOpacity: 1,
+                strokeWeight: 2
+            },
+            stndardColor: '#92D300',
+            highlightColor: highlightColor,
+            polyMap: broadRipplePoly,
+            marker: null,
+            constructMarker: function () {
+                var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
+
+                this.marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title:"Broad Ripple!",
+                    animation: google.maps.Animation.BOUNCE,
+                    icon: 'images/marker.png'
+                });
+
+                this.marker.setMap(map);
+                setTimeout(function() {broadRipple.marker.setAnimation(null)}, 1550);
+            },
+            resetMarker: function () {
+                this.marker.setMap(null);
+            },
+            highlight: function() {
+                broadRipplePoly.setMap(null);
+                this.polyMap.setMap(null);
+
+                this.poly.strokeColor = this.highlightColor;
+                this.poly.strokeOpacity = 0.5;
+                this.poly.strokeWeight = 10;
+                this.polyMap = new google.maps.Polyline(this.poly);
+                this.polyMap.setMap(map);
+                this.constructMarker();
+                this.panTo();
+            },
+            reset: function() {
+                broadRipplePoly.setMap(null);
+                this.polyMap.setMap(null);
+                if (this.marker) {this.resetMarker();};
+
+                this.poly.strokeColor = '#92D300';
+                this.poly.strokeOpacity = 1;
+                this.poly.strokeWeight = 2;
+                this.polyMap = new google.maps.Polyline(this.poly);
+                this.polyMap.setMap(map);
+            },
+            setZoom: function () {
+                map.setZoom(this.zoom)
+            },
+            panTo: function () {
+                map.panTo(this.center);
+                this.setZoom();
+            }
+        };
 
         var collegeCoords = [
             new google.maps.LatLng(39.91253784835588, -86.1458158493042),
@@ -320,6 +452,72 @@ $(document).ready(function() {
         });
 
         foxHillPoly.setMap(map);
+
+        window.foxHill = {
+            name: 'foxHill',
+            el: $('#foxHill'),
+            center: {lat: 39.86475483576405, lng: -86.18375301361084},
+            zoom: 14,
+            coords: foxHillCoords,
+            type: 'line',
+            poly: {
+                path: foxHillCoords,
+                geodesic: true,
+                strokeColor: '#92D300',
+                strokeOpacity: 1,
+                strokeWeight: 2
+            },
+            stndardColor: '#92D300',
+            highlightColor: highlightColor,
+            polyMap: foxHillPoly,
+            marker: null,
+            constructMarker: function () {
+                var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
+
+                this.marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title:"Fox Hill",
+                    animation: google.maps.Animation.BOUNCE,
+                    icon: 'images/marker.png'
+                });
+
+                this.marker.setMap(map);
+                setTimeout(function() {foxHill.marker.setAnimation(null)}, 1550);
+            },
+            resetMarker: function () {
+                this.marker.setMap(null);
+            },
+            highlight: function() {
+                foxHillPoly.setMap(null);
+                this.polyMap.setMap(null);
+
+                this.poly.strokeColor = this.highlightColor;
+                this.poly.strokeOpacity = 0.5;
+                this.poly.strokeWeight = 10;
+                this.polyMap = new google.maps.Polyline(this.poly);
+                this.polyMap.setMap(map);
+                this.constructMarker();
+                this.panTo();
+            },
+            reset: function() {
+                foxHillPoly.setMap(null);
+                this.polyMap.setMap(null);
+                if (this.marker) {this.resetMarker();};
+
+                this.poly.strokeColor = '#92D300';
+                this.poly.strokeOpacity = 1;
+                this.poly.strokeWeight = 2;
+                this.polyMap = new google.maps.Polyline(this.poly);
+                this.polyMap.setMap(map);
+            },
+            setZoom: function () {
+                map.setZoom(this.zoom)
+            },
+            panTo: function () {
+                map.panTo(this.center);
+                this.setZoom();
+            }
+        };
 
         var kesslerCoords = [
             new google.maps.LatLng(39.85520154639845, -86.08376026153564),
@@ -447,6 +645,72 @@ $(document).ready(function() {
 
         kesslerPoly.setMap(map);
 
+        window.kessler = {
+            name: 'kessler',
+            el: $('#kessler'),
+            center: {lat: 39.862053695703196, lng: -86.14397048950195},
+            zoom: 13,
+            coords: kesslerCoords,
+            type: 'line',
+            poly: {
+                path: kesslerCoords,
+                geodesic: true,
+                strokeColor: '#92D300',
+                strokeOpacity: 1,
+                strokeWeight: 2
+            },
+            stndardColor: '#92D300',
+            highlightColor: highlightColor,
+            polyMap: kesslerPoly,
+            marker: null,
+            constructMarker: function () {
+                var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
+
+                this.marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title:"Kessler",
+                    animation: google.maps.Animation.BOUNCE,
+                    icon: 'images/marker.png'
+                });
+
+                this.marker.setMap(map);
+                setTimeout(function() {kessler.marker.setAnimation(null)}, 1550);
+            },
+            resetMarker: function () {
+                this.marker.setMap(null);
+            },
+            highlight: function() {
+                kesslerPoly.setMap(null);
+                this.polyMap.setMap(null);
+
+                this.poly.strokeColor = this.highlightColor;
+                this.poly.strokeOpacity = 0.5;
+                this.poly.strokeWeight = 10;
+                this.polyMap = new google.maps.Polyline(this.poly);
+                this.polyMap.setMap(map);
+                this.constructMarker();
+                this.panTo();
+            },
+            reset: function() {
+                kesslerPoly.setMap(null);
+                this.polyMap.setMap(null);
+                if (this.marker) {this.resetMarker();};
+
+                this.poly.strokeColor = '#92D300';
+                this.poly.strokeOpacity = 1;
+                this.poly.strokeWeight = 2;
+                this.polyMap = new google.maps.Polyline(this.poly);
+                this.polyMap.setMap(map);
+            },
+            setZoom: function () {
+                map.setZoom(this.zoom)
+            },
+            panTo: function () {
+                map.panTo(this.center);
+                this.setZoom();
+            }
+        };
+
         window.butlerCoords = [
             new google.maps.LatLng(39.842602657268465, -86.1642050743103),
 
@@ -563,6 +827,77 @@ $(document).ready(function() {
 
         butlerPolygon.setMap(map);
 
+        butler = {
+            name: 'butler',
+            el: $('#butler'),
+            center: {lat: 39.83882609235166, lng: -86.17130756378174},
+            zoom: 14,
+            coords: butlerCoords,
+            type: 'gon',
+            poly: {
+                path: butlerCoords,
+                geodesic: true,
+                strokeColor: '#92D300',
+                strokeOpacity: 1,
+                strokeWeight: 2,
+                fillColor: '#92D300',
+                fillOpacity: 0.35
+            },
+            stndardColor: '#92D300',
+            highlightColor: highlightColor,
+            polyMap: butlerPolygon,
+            marker: null,
+            constructMarker: function () {
+                var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
+
+                this.marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title:"Butler",
+                    animation: google.maps.Animation.BOUNCE,
+                    icon: 'images/marker.png'
+                });
+
+                this.marker.setMap(map);
+                setTimeout(function() {butler.marker.setAnimation(null)}, 1550);
+            },
+            resetMarker: function () {
+                this.marker.setMap(null);
+            },
+            highlight: function() {
+                butlerPolygon.setMap(null)
+                this.polyMap.setMap(null);
+
+                this.poly.strokeColor = this.highlightColor;
+                this.poly.strokeOpacity = 0.5;
+                this.poly.strokeWeight = 5;
+                this.poly.fillColor = highlightColor;
+                this.polyMap = new google.maps.Polygon(this.poly);
+                this.polyMap.setMap(map);
+                this.constructMarker();
+                this.panTo();
+            },
+            reset: function() {
+                butlerPolygon.setMap(null)
+                this.polyMap.setMap(null);
+                if (this.marker) {this.resetMarker();};
+
+                this.poly.strokeColor = '#92D300';
+                this.poly.strokeOpacity = 1;
+                this.poly.strokeWeight = 2;
+                this.poly.fillColor = '#92D300';
+                this.poly.fillOpacity = 0.35;
+                this.polyMap = new google.maps.Polygon(this.poly);
+                this.polyMap.setMap(map);
+            },
+            setZoom: function () {
+                map.setZoom(this.zoom)
+            },
+            panTo: function () {
+                map.panTo(this.center);
+                this.setZoom();
+            }
+        };
+
         // Set the Polygon Coords
         var fountainSquareCoords = [
             new google.maps.LatLng(39.75960273687801, -86.13993644714355),
@@ -622,28 +957,74 @@ $(document).ready(function() {
 
         fountainSquarePolygon.setMap(map);
 
+        window.fountainSquare = {
+            name: 'fountainSquare',
+            el: $('#fountainSquare'),
+            center: {lat: 39.7521722541479, lng: -86.13959312438965},
+            zoom: 15,
+            coords: fountainSquareCoords,
+            type: 'gon',
+            poly: {
+                path: fountainSquareCoords,
+                geodesic: true,
+                strokeColor: '#92D300',
+                strokeOpacity: 1,
+                strokeWeight: 2,
+                fillColor: '#92D300',
+                fillOpacity: 0.35
+            },
+            stndardColor: '#92D300',
+            highlightColor: highlightColor,
+            polyMap: fountainSquarePolygon,
+            marker: null,
+            constructMarker: function () {
+                var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
 
-        function MapItem () {
-            this.coords = coords;
-            this.polyObj = {};
-            this.setType = function(type) {
-                if(type === 'polyline') {
-                    console.log(type)
-                }
-                else if (type === 'polygon') {
+                this.marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title:"Fountain Square",
+                    animation: google.maps.Animation.BOUNCE,
+                    icon: 'images/marker.png'
+                });
 
-                }
-                else {
-                    console.log('dont go here')
-                }
-            }
-            this.set = function () {
-                this.polyObj.setMap(map);
-            }
-            this.next = next;
-            this.prev = prev;
-            this.highlight = function () {
+                this.marker.setMap(map);
+                setTimeout(function() {fountainSquare.marker.setAnimation(null)}, 1550);
+            },
+            resetMarker: function () {
+                this.marker.setMap(null);
+            },
+            highlight: function() {
+                fountainSquarePolygon.setMap(null)
+                this.polyMap.setMap(null);
 
+                this.poly.strokeColor = this.highlightColor;
+                this.poly.strokeOpacity = 0.5;
+                this.poly.strokeWeight = 5;
+                this.poly.fillColor = highlightColor;
+                this.polyMap = new google.maps.Polygon(this.poly);
+                this.polyMap.setMap(map);
+                this.constructMarker();
+                this.panTo();
+            },
+            reset: function() {
+                fountainSquarePolygon.setMap(null)
+                this.polyMap.setMap(null);
+                if (this.marker) {this.resetMarker();};
+
+                this.poly.strokeColor = '#92D300';
+                this.poly.strokeOpacity = 1;
+                this.poly.strokeWeight = 2;
+                this.poly.fillColor = '#92D300';
+                this.poly.fillOpacity = 0.35;
+                this.polyMap = new google.maps.Polygon(this.poly);
+                this.polyMap.setMap(map);
+            },
+            setZoom: function () {
+                map.setZoom(this.zoom)
+            },
+            panTo: function () {
+                map.panTo(this.center);
+                this.setZoom();
             }
         };
 
@@ -660,7 +1041,7 @@ $(document).ready(function() {
             ];
 
             // Construct the polygon.
-            tarkingtonePolygon = new google.maps.Polygon({
+            tarkingtonPolygon = new google.maps.Polygon({
                 paths: tarkingtonCoords,
                 strokeColor: '#92D300',
                 strokeOpacity: 0.8,
@@ -669,40 +1050,128 @@ $(document).ready(function() {
                 fillOpacity: 0.35
             });
 
-        tarkingtonePolygon.setMap(map);
+        tarkingtonPolygon.setMap(map);
 
-        ///* Add Coordinate on click
-        // //////////////////////////////////////////////*/
-        google.maps.event.addListener(map, 'click', function(event) {
-
-            // Get Coordinates of Click
-            window.marker = new google.maps.Marker({position: event.latLng, map: map});
-            var lat = marker.position.k;
-            var Lng = marker.position.D;
-
-            console.log('before: ' + meridianCoords)
-
-            // Add click locaiton to array
-            meridianCoords.push(new google.maps.LatLng(lat, Lng));
-            console.log('after: ' + meridianCoords)
-
-            // Make array into Polyline
-            meridianPoly = new google.maps.Polyline({
-                path: meridianCoords,
+        window.tarkington = {
+            name: 'tarkington',
+            el: $('#tarkington'),
+            center: {lat: 39.827324696760776, lng: -86.1568021774292},
+            zoom: 16,
+            coords: tarkingtonCoords,
+            type: 'gon',
+            poly: {
+                path: tarkingtonCoords,
                 geodesic: true,
                 strokeColor: '#92D300',
                 strokeOpacity: 1,
-                strokeWeight: 2
-            });
+                strokeWeight: 2,
+                fillColor: '#92D300',
+                fillOpacity: 0.35
+            },
+            stndardColor: '#92D300',
+            highlightColor: highlightColor,
+            polyMap: tarkingtonPolygon,
+            marker: null,
+            constructMarker: function () {
+                var myLatlng = new google.maps.LatLng(this.center.lat,this.center.lng);
 
-            // Set Polyline on Map
-            meridianPoly.setMap(map);
+                this.marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title:"Tarkington",
+                    animation: google.maps.Animation.BOUNCE,
+                    icon: 'images/marker.png'
+                });
 
-            //// Show point
-            $('#list').append('<p>new google.maps.LatLng(' + lat + ', ' + Lng + '),</p>');
+                this.marker.setMap(map);
+                setTimeout(function() {tarkington.marker.setAnimation(null)}, 1550);
+            },
+            resetMarker: function () {
+                this.marker.setMap(null);
+            },
+            highlight: function() {
+                tarkingtonPolygon.setMap(null)
+                this.polyMap.setMap(null);
 
+                this.poly.strokeColor = this.highlightColor;
+                this.poly.strokeOpacity = 0.5;
+                this.poly.strokeWeight = 5;
+                this.poly.fillColor = highlightColor;
+                this.polyMap = new google.maps.Polygon(this.poly);
+                this.polyMap.setMap(map);
+                this.constructMarker();
+                this.panTo();
+            },
+            reset: function() {
+                tarkingtonPolygon.setMap(null)
+                this.polyMap.setMap(null);
+                if (this.marker) {this.resetMarker();};
 
-        });
+                this.poly.strokeColor = '#92D300';
+                this.poly.strokeOpacity = 1;
+                this.poly.strokeWeight = 2;
+                this.poly.fillColor = '#92D300';
+                this.poly.fillOpacity = 0.35;
+                this.polyMap = new google.maps.Polygon(this.poly);
+                this.polyMap.setMap(map);
+            },
+            setZoom: function () {
+                map.setZoom(this.zoom)
+            },
+            panTo: function () {
+                map.panTo(this.center);
+                this.setZoom();
+            }
+        };
+
+        /*// Set the Linked List
+        ///////////////////////////////////////////////////*/
+
+        broadRipple.previous = null;
+        broadRipple.next = kessler;
+        kessler.previous = broadRipple;
+        kessler.next = butler;
+        butler.previous = kessler;
+        butler.next = foxHill;
+        foxHill.previous = butler;
+        foxHill.next = fountainSquare;
+        fountainSquare.previous = foxHill;
+        fountainSquare.next = meridian;
+        meridian.previous = fountainSquare;
+        meridian.next = tarkington;
+        tarkington.previous = meridian;
+        tarkington.next = null;
+        ///* Add Coordinate on click
+        // //////////////////////////////////////////////*/
+        //google.maps.event.addListener(map, 'click', function(event) {
+        //
+        //    // Get Coordinates of Click
+        //    window.marker = new google.maps.Marker({position: event.latLng, map: map});
+        //    var lat = marker.position.k;
+        //    var Lng = marker.position.D;
+        //
+        //    console.log('before: ' + meridianCoords)
+        //
+        //    // Add click locaiton to array
+        //    meridianCoords.push(new google.maps.LatLng(lat, Lng));
+        //    console.log('after: ' + meridianCoords)
+        //
+        //    // Make array into Polyline
+        //    meridianPoly = new google.maps.Polyline({
+        //        path: meridianCoords,
+        //        geodesic: true,
+        //        strokeColor: '#92D300',
+        //        strokeOpacity: 1,
+        //        strokeWeight: 2
+        //    });
+        //
+        //    // Set Polyline on Map
+        //    meridianPoly.setMap(map);
+        //
+        //    //// Show point
+        //    $('#list').append('<p>new google.maps.LatLng(' + lat + ', ' + Lng + '),</p>');
+        //
+        //
+        //});
 
     }
     google.maps.event.addDomListener(window, 'load', initialize);
