@@ -71,7 +71,9 @@ html body {
     text-align: center;
     max-height: 500px;
     overflow-y: scroll;
-    -ms-overflow-y: scroll; }
+    -ms-overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-x: hidden; }
     html body #glasses-container .pair-container h3 {
       margin: 25px auto 0px auto; }
     html body #glasses-container .pair-container .pair-img-container {
@@ -110,5 +112,8 @@ html body {
       right: -15%; }
     html body #glasses-container .pair-container:last-child {
       padding-bottom: 220px; }
+  html body footer {
+    padding: 60px 30px 20px 30px;
+    text-align: center; }
 
 /*# sourceMappingURL=brendan.css.map */

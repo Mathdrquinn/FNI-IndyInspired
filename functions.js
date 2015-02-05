@@ -25,7 +25,6 @@ $('#glasses-container').on('scroll', function () {
     function primary(el) {
 
         var $el = $(el)
-
         var elTop = $el.offset().top;
 
         if (elTop) {
@@ -37,22 +36,21 @@ $('#glasses-container').on('scroll', function () {
 
             if (inView) {
                 console.log($el.find('h3').text() + '------------------------');
-                var lat = parseFloat($el.data('lat'));
-                var lng = parseFloat($el.data('lng'));
-                var zoom = parseFloat($el.data('zoom'));
+                name = $el.data('name');
+                console.log(name);
+                activePair = window[name];
+                console.log(map.getCenter().k)
+                console.log(activePair.center.lat)
 
-                var mapPairOptions = {
-                    center: { lat: lat, lng: lng},
-                    zoom: zoom
-                };
+                if (map.getCenter().k !== activePair.center.lat) {
+                    if (activePair.previous) {
+                        activePair.previous.reset();
+                    }
+                    if (activePair.next) {
+                        activePair.next.reset();
+                    }
+                    activePair.highlight();
 
-                if (map.getCenter().k !== lat && map.getCenter().D !== lng) {
-                    console.log(typeof mapPairOptions.center.lng)
-                    console.log(mapPairOptions.center.lng)
-                    console.log(mapPairOptions.center)
-                    console.log('met conditions!!!!!!!!')
-                    map.panTo(mapPairOptions.center);
-                    map.setZoom(mapPairOptions.zoom)
                 }
             }
 
