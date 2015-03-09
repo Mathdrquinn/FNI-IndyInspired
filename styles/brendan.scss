@@ -81,7 +81,6 @@ html body {
       height: 500px;
       margin: 0;
       padding: 0;
-      width: 640px;
     }
 
     #info {
@@ -124,7 +123,7 @@ html body {
       .pair-text {
         position: absolute;
         right: -100%;
-        bottom: 0px;
+        top: 60px;
         background-color: $orange;
         height: 190px;
         padding: 15px 30px;
@@ -140,7 +139,7 @@ html body {
           color: white;
           font-size: 30px;
           background-color: lighten(#093347, 10%);
-          z-index: 3141592;
+          z-index: 999999999;
           img {
             height:30px;
           }
@@ -176,3 +175,9 @@ html body {
     text-align: center;
   }
 }
+
+@import "1280-Media";
+@import "1020-Media";
+@import "910-Media";
+@import "641-Media";
+@import "414-Media";

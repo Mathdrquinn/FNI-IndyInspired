@@ -1,7 +1,7 @@
 console.log('brendan!')
 var standardColor = '#92D300';
 var highlightColor = '#FD7C08';
-
+window.viewPort = $(document).width();
 $(document).ready(function() {
 
     // Load Map
@@ -182,9 +182,11 @@ $(document).ready(function() {
             strokeWeight: 2
         });
 
-        meridian = {
+        window.meridian = {
             name: 'meridian',
-            el: $('#' + this.name),
+            el: function() {
+            return $('#' + this.name);
+            },
             center: {lat: 39.76841991769641, lng: -86.15808963775635},
             zoom: 15,
             coords: meridianCoords,
@@ -251,10 +253,15 @@ $(document).ready(function() {
             panTo: function () {
                 map.panTo(this.center);
                 this.setZoom();
+            },
+            moveToSlide: function () {
+                console.log('move Slide')
+                var index = $('.swiper-slide').index(this.el()) - 1;
+                mySwiper.swipeTo(index, 500);
             }
         };
 
-        var broadRippleCoords = [
+        window.broadRippleCoords = [
             new google.maps.LatLng(39.86963339756685, -86.14609479904175),
 
             new google.maps.LatLng(39.8696992730187, -86.14171743392944),
@@ -282,10 +289,11 @@ $(document).ready(function() {
             strokeWeight: 2
         });
 
-        broadRipple = {
+        window.broadRipple = {
             name: 'broadRipple',
-            el: $('#broadripple'),
-            center: {lat: 39.86850990258248, lng: -86.13418579101562},
+            el: function() {
+                return $('#' + this.name);
+            },            center: {lat: 39.86850990258248, lng: -86.13418579101562},
             zoom: 15,
             coords: broadRippleCoords,
             type: 'line',
@@ -354,6 +362,11 @@ $(document).ready(function() {
             panTo: function () {
                 map.panTo(this.center);
                 this.setZoom();
+            },
+            moveToSlide: function () {
+                console.log('move Slide')
+                var index = $('.swiper-slide').index(this.el()) - 1;
+                mySwiper.swipeTo(index, 500);
             }
         };
 
@@ -426,7 +439,7 @@ $(document).ready(function() {
         //collegePoly.setMap(map);
 
         //Foxhill Coords
-        var foxHillCoords = [
+        window.foxHillCoords = [
             new google.maps.LatLng(39.864956078794926, -86.20023250579834),
 
             new google.maps.LatLng(39.865071368654114, -86.19774341583252),
@@ -463,9 +476,11 @@ $(document).ready(function() {
             strokeWeight: 2
         });
 
-        foxHill = {
+        window.foxHill = {
             name: 'foxHill',
-            el: $('#foxHill'),
+            el: function() {
+                return $('#' + this.name);
+            },
             center: {lat: 39.86475483576405, lng: -86.18375301361084},
             zoom: 14,
             coords: foxHillCoords,
@@ -535,6 +550,10 @@ $(document).ready(function() {
             panTo: function () {
                 map.panTo(this.center);
                 this.setZoom();
+            },
+            moveToSlide: function () {
+                var index = $('.swiper-slide').index(this.el()) - 1;
+                mySwiper.swipeTo(index, 500);
             }
         };
 
@@ -654,7 +673,7 @@ $(document).ready(function() {
             new google.maps.LatLng(39.85355429312432, -86.21192693710327),
         ];
 
-        var kesslerPoly = new google.maps.Polyline({
+        window.kesslerPoly = new google.maps.Polyline({
             path: kesslerCoords,
             geodesic: true,
             strokeColor: '#92D300',
@@ -664,7 +683,9 @@ $(document).ready(function() {
 
         kessler = {
             name: 'kessler',
-            el: $('#kessler'),
+            el: function() {
+                return $('#' + this.name);
+            },
             center: {lat: 39.862053695703196, lng: -86.14397048950195},
             zoom: 13,
             coords: kesslerCoords,
@@ -734,6 +755,11 @@ $(document).ready(function() {
             panTo: function () {
                 map.panTo(this.center);
                 this.setZoom();
+            },
+            moveToSlide: function () {
+                console.log('move Slide')
+                var index = $('.swiper-slide').index(this.el()) - 1;
+                mySwiper.swipeTo(index, 500);
             }
         };
 
@@ -851,10 +877,11 @@ $(document).ready(function() {
             fillOpacity: 0.35
         });
 
-        butler = {
+        window.butler = {
             name: 'butler',
-            el: $('#butler'),
-            center: {lat: 39.83882609235166, lng: -86.17130756378174},
+            el: function() {
+                return $('#' + this.name);
+            },            center: {lat: 39.83882609235166, lng: -86.17130756378174},
             zoom: 14,
             coords: butlerCoords,
             type: 'gon',
@@ -928,6 +955,11 @@ $(document).ready(function() {
             panTo: function () {
                 map.panTo(this.center);
                 this.setZoom();
+            },
+            moveToSlide: function () {
+                console.log('move Slide')
+                var index = $('.swiper-slide').index(this.el()) - 1;
+                mySwiper.swipeTo(index, 500);
             }
         };
 
@@ -988,10 +1020,11 @@ $(document).ready(function() {
             fillOpacity: 0.35
         });
 
-        fountainSquare = {
+        window.fountainSquare = {
             name: 'fountainSquare',
-            el: $('#fountainSquare'),
-            center: {lat: 39.7521722541479, lng: -86.13959312438965},
+            el: function() {
+                return $('#' + this.name);
+            },            center: {lat: 39.7521722541479, lng: -86.13959312438965},
             zoom: 15,
             coords: fountainSquareCoords,
             type: 'gon',
@@ -1065,6 +1098,11 @@ $(document).ready(function() {
             panTo: function () {
                 map.panTo(this.center);
                 this.setZoom();
+            },
+            moveToSlide: function () {
+                console.log('move Slide')
+                var index = $('.swiper-slide').index(this.el()) - 1;
+                mySwiper.swipeTo(index, 500);
             }
         };
 
@@ -1090,10 +1128,11 @@ $(document).ready(function() {
                 fillOpacity: 0.35
             });
 
-        tarkington = {
+        window.tarkington = {
             name: 'tarkington',
-            el: $('#tarkington'),
-            center: {lat: 39.827324696760776, lng: -86.1568021774292},
+            el: function() {
+                return $('#' + this.name);
+            },            center: {lat: 39.827324696760776, lng: -86.1568021774292},
             zoom: 16,
             coords: tarkingtonCoords,
             type: 'gon',
@@ -1167,6 +1206,11 @@ $(document).ready(function() {
             panTo: function () {
                 map.panTo(this.center);
                 this.setZoom();
+            },
+            moveToSlide: function () {
+                console.log('move Slide')
+                var index = $('.swiper-slide').index(this.el()) - 1;
+                mySwiper.swipeTo(index, 500);
             }
         };
 
@@ -1190,6 +1234,42 @@ $(document).ready(function() {
 
         broadRipple.constructPoly();
         broadRipple.constructMarker();
+        ///* Add Coordinate on click
+        // //////////////////////////////////////////////*/
+
+        /*// Set Indexes and Add Marker Listeners
+        ///////////////////////////////////////////////////*/
+
+        var locations = [];
+
+        function locationsArrayAndListener (first) {
+            var link = first;
+
+            while (link) {
+
+                locations.push(link)
+
+                google.maps.event.addListener(link.marker, 'click', function() {
+
+                    for(var i = 0; i < locations.length; i++) {
+
+                        if(locations[i].marker === this) {
+                            window[mySwiper.activeSlide().data('name')].reset();
+
+                            locations[i].highlight();
+                            locations[i].moveToSlide();
+                        }
+                        else {
+                            console.log(locations[i].name + ' is not a match');
+                        }
+
+                    } // End for loop
+                }); // End Marker Click Listener
+                link = link.next
+            } // End While Loop
+        } // End locationsArrayAndListener
+        locationsArrayAndListener(broadRipple)
+
         ///* Add Coordinate on click
         // //////////////////////////////////////////////*/
         //google.maps.event.addListener(map, 'click', function(event) {

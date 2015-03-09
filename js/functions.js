@@ -3,6 +3,7 @@ console.log('functions');
 var glassesContainer = $('#glasses-container').offset().top;
 
 $('.arrow-left').on('click', function() {
+    console.log('click!');
     var $this = $(this);
     var parent = $this.parent('.pair-text');
 

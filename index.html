@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
     <title>F+I Indy Inspired</title>
 
-    <link rel="stylesheet" href="foundation.min.css"/>
-    <link rel="stylesheet" href="brendan.css"/>
+    <link rel="stylesheet" href="styles/foundation.min.css"/>
+    <link rel="stylesheet" href="styles/idangerous.swiper.css"/>
+    <link rel="stylesheet" href="styles/brendan.css"/>
 </head>
 <body>
     <div class="container">
@@ -30,156 +33,157 @@
             <div id="map-canvas" class="large-6 medium-6 columns">
 
             </div>
-            <div id="glasses-container" class="large-6 medium-6 columns">
+            <div id="glasses-container" class="swiper-container large-6 medium-6 columns">
+                <div class="swiper-wrapper">
 
-
-                <!-- Begin Pair-->
-                <div id="broadRipple" class="row pair-container" data-name="broadRipple" data-lat="39.86850990258248" data-lng="-86.13418579101562" data-zoom="15">
-                    <div class="pair-img large-12 medium-12 small-12 columns">
-                        <h3><span>Broad Ripple</span></h3>
-                        <div class="pair-img-container">
-                            <img src="http://cdn.felixandiris.com/tn_-----images--W--BroadRipple-TOR---jpg_w705.jpg" alt="Broad Ripple"/>
+                    <!-- Begin Pair-->
+                    <div id="broadRipple" class="row pair-container swiper-slide" data-name="broadRipple" data-lat="39.86850990258248" data-lng="-86.13418579101562" data-zoom="15">
+                        <div class="pair-img large-12 medium-12 small-12 columns">
+                            <h3><span>Broad Ripple</span></h3>
+                            <div class="pair-img-container">
+                                <img src="http://cdn.felixandiris.com/tn_-----images--W--BroadRipple-TOR---jpg_w705.jpg" alt="Broad Ripple"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- .pair-text-->
-                    <div class="large-12 medium-12 small-12 columns pair-text">
-                        This is about the product!
-                        <div class="arrow-left">
-                            <img src="arrows/arrow-left.png" alt=""/>
+                        <!-- .pair-text-->
+                        <div class="large-12 medium-12 small-12 columns pair-text">
+                            This is about the product!
+                            <div class="arrow-left">
+                                <img src="arrows/arrow-left.png" alt=""/>
+                            </div>
+                        </div>  <!-- End .pair-text-->
+
+                        <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
+                    </div> <!-- End Pair-->
+
+
+                    <!-- Begin Pair-->
+                    <div id="kessler"class="row pair-container swiper-slide" data-name="kessler" data-lat="39.862053695703196" data-lng="-86.14397048950195" data-zoom="13">
+                        <div class="pair-img large-12 medium-12 small-12 columns">
+                            <h3>Kessler</h3>
+                            <div class="pair-img-container">
+                                <img src="http://cdn.felixandiris.com/tn_-----images--W--Kessler-COF---jpg_w705.jpg" alt="Kessler"/>
+                            </div>
                         </div>
-                    </div>  <!-- End .pair-text-->
 
-                    <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
-                </div> <!-- End Pair-->
+                        <!-- .pair-text-->
+                        <div class="large-12 medium-12 small-12 columns pair-text">
+                            This is about the product!
+                            <div class="arrow-left">
+                                <img src="arrows/arrow-left.png" alt=""/>
+                            </div>
+                        </div>  <!-- End .pair-text-->
+
+                        <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
+                    </div> <!-- End Pair-->
 
 
-                <!-- Begin Pair-->
-                <div id="kessler"class="row pair-container" data-name="kessler" data-lat="39.862053695703196" data-lng="-86.14397048950195" data-zoom="13">
-                    <div class="pair-img large-12 medium-12 small-12 columns">
-                        <h3>Kessler</h3>
-                        <div class="pair-img-container">
-                            <img src="http://cdn.felixandiris.com/tn_-----images--W--Kessler-COF---jpg_w705.jpg" alt="Kessler"/>
+                    <!-- Begin Pair-->
+                    <div id="butler" class="row pair-container swiper-slide" data-name="butler" data-lat="39.83882609235166" data-lng="-86.17130756378174" data-zoom="14">
+                        <div class="pair-img large-12 medium-12 small-12 columns">
+                            <h3>Butler</h3>
+                            <div class="pair-img-container">
+                                <img src="http://cdn.felixandiris.com/tn_-----images--W--Butler-TOR---jpg_w705.jpg" alt="Butler"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- .pair-text-->
-                    <div class="large-12 medium-12 small-12 columns pair-text">
-                        This is about the product!
-                        <div class="arrow-left">
-                            <img src="arrows/arrow-left.png" alt=""/>
+                        <!-- .pair-text-->
+                        <div class="large-12 medium-12 small-12 columns pair-text">
+                            This is about the product!
+                            <div class="arrow-left">
+                                <img src="arrows/arrow-left.png" alt=""/>
+                            </div>
+                        </div>  <!-- End .pair-text-->
+
+                        <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
+                    </div> <!-- End Pair-->
+
+
+                    <!-- Begin Pair-->
+                    <div id="foxHill" class="row pair-container swiper-slide" data-name="foxHill" data-lat="39.86475483576405" data-lng="-86.18375301361084" data-zoom="14">
+                        <div class="pair-img large-12 medium-12 small-12 columns">
+                            <h3>Fox Hill</h3>
+                            <div class="pair-img-container">
+                                <img src="http://cdn.felixandiris.com/tn_-----images--W--FoxHill-MSV---jpg_w705.jpg" alt="Fox Hill"/>
+                            </div>
                         </div>
-                    </div>  <!-- End .pair-text-->
 
-                    <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
-                </div> <!-- End Pair-->
+                        <!-- .pair-text-->
+                        <div class="large-12 medium-12 small-12 columns pair-text">
+                            This is about the product!
+                            <div class="arrow-left">
+                                <img src="arrows/arrow-left.png" alt=""/>
+                            </div>
+                        </div>  <!-- End .pair-text-->
+
+                        <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
+                    </div> <!-- End Pair-->
 
 
-                <!-- Begin Pair-->
-                <div id="butler" class="row pair-container" data-name="butler" data-lat="39.83882609235166" data-lng="-86.17130756378174" data-zoom="14">
-                    <div class="pair-img large-12 medium-12 small-12 columns">
-                        <h3>Butler</h3>
-                        <div class="pair-img-container">
-                            <img src="http://cdn.felixandiris.com/tn_-----images--W--Butler-TOR---jpg_w705.jpg" alt="Butler"/>
+                    <!-- Begin Pair-->
+                    <div id="fountainSquare" class="row pair-container swiper-slide" data-name="fountainSquare" data-lat="39.7521722541479" data-lng="-86.13959312438965" data-zoom="15">
+                        <div class="pair-img large-12 medium-12 small-12 columns">
+                            <h3>Fountain Square</h3>
+                            <div class="pair-img-container">
+                                <img src="http://cdn.felixandiris.com/tn_-----images--W--FountainSquare-BLK---jpg_w705.jpg" alt="Fountain Square"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- .pair-text-->
-                    <div class="large-12 medium-12 small-12 columns pair-text">
-                        This is about the product!
-                        <div class="arrow-left">
-                            <img src="arrows/arrow-left.png" alt=""/>
+                        <!-- .pair-text-->
+                        <div class="large-12 medium-12 small-12 columns pair-text">
+                            This is about the product!
+                            <div class="arrow-left">
+                                <img src="arrows/arrow-left.png" alt=""/>
+                            </div>
+                        </div>  <!-- End .pair-text-->
+
+                        <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
+                    </div> <!-- End Pair-->
+
+
+                    <!-- Begin Pair-->
+                    <div id="meridian" class="row pair-container swiper-slide" data-name="meridian" data-lat="39.76841991769641" data-lng="-86.15808963775635" data-zoom="15">
+                        <div class="pair-img large-12 medium-12 small-12 columns">
+                            <h3>Meridian</h3>
+                            <div class="pair-img-container">
+                                <img src="http://cdn.felixandiris.com/tn_-----images--W--Meridian-TOP---jpg_w705.jpg" alt="Meridian"/>
+                            </div>
                         </div>
-                    </div>  <!-- End .pair-text-->
 
-                    <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
-                </div> <!-- End Pair-->
+                        <!-- .pair-text-->
+                        <div class="large-12 medium-12 small-12 columns pair-text">
+                            This is about the product!
+                            <div class="arrow-left">
+                                <img src="arrows/arrow-left.png" alt=""/>
+                            </div>
+                        </div>  <!-- End .pair-text-->
+
+                        <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
+                    </div> <!-- End Pair-->
 
 
-                <!-- Begin Pair-->
-                <div id="foxHill" class="row pair-container" data-name="foxHill" data-lat="39.86475483576405" data-lng="-86.18375301361084" data-zoom="14">
-                    <div class="pair-img large-12 medium-12 small-12 columns">
-                        <h3>Fox Hill</h3>
-                        <div class="pair-img-container">
-                            <img src="http://cdn.felixandiris.com/tn_-----images--W--FoxHill-MSV---jpg_w705.jpg" alt="Fox Hill"/>
+                    <!-- Begin Pair-->
+                    <div id="tarkington" class="row pair-container swiper-slide" data-name="tarkington" data-lat="39.827324696760776" data-lng="-86.1568021774292" data-zoom="16">
+                        <div class="pair-img large-12 medium-12 small-12 columns">
+                            <h3>Tarkington</h3>
+                            <div class="pair-img-container">
+                                <img src="http://cdn.felixandiris.com/tn_-----images--W--Tarkington-GUN-02---jpg_w705.jpg" alt="Tarkington"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- .pair-text-->
-                    <div class="large-12 medium-12 small-12 columns pair-text">
-                        This is about the product!
-                        <div class="arrow-left">
-                            <img src="arrows/arrow-left.png" alt=""/>
-                        </div>
-                    </div>  <!-- End .pair-text-->
+                        <!-- .pair-text-->
+                        <div class="large-12 medium-12 small-12 columns pair-text">
+                            This is about the product!
+                            <div class="arrow-left">
+                                <img src="arrows/arrow-left.png" alt=""/>
+                            </div>
+                        </div>  <!-- End .pair-text-->
 
-                    <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
-                </div> <!-- End Pair-->
-
-
-                <!-- Begin Pair-->
-                <div id="fountainSquare" class="row pair-container" data-name="fountainSquare" data-lat="39.7521722541479" data-lng="-86.13959312438965" data-zoom="15">
-                    <div class="pair-img large-12 medium-12 small-12 columns">
-                        <h3>Fountain Square</h3>
-                        <div class="pair-img-container">
-                            <img src="http://cdn.felixandiris.com/tn_-----images--W--FountainSquare-BLK---jpg_w705.jpg" alt="Fountain Square"/>
-                        </div>
-                    </div>
-
-                    <!-- .pair-text-->
-                    <div class="large-12 medium-12 small-12 columns pair-text">
-                        This is about the product!
-                        <div class="arrow-left">
-                            <img src="arrows/arrow-left.png" alt=""/>
-                        </div>
-                    </div>  <!-- End .pair-text-->
-
-                    <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
-                </div> <!-- End Pair-->
+                        <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
+                    </div> <!-- End Pair-->
 
 
-                <!-- Begin Pair-->
-                <div id="meridian" class="row pair-container" data-name="meridian" data-lat="39.76841991769641" data-lng="-86.15808963775635" data-zoom="15">
-                    <div class="pair-img large-12 medium-12 small-12 columns">
-                        <h3>Meridian</h3>
-                        <div class="pair-img-container">
-                            <img src="http://cdn.felixandiris.com/tn_-----images--W--Meridian-TOP---jpg_w705.jpg" alt="Meridian"/>
-                        </div>
-                    </div>
-
-                    <!-- .pair-text-->
-                    <div class="large-12 medium-12 small-12 columns pair-text">
-                        This is about the product!
-                        <div class="arrow-left">
-                            <img src="arrows/arrow-left.png" alt=""/>
-                        </div>
-                    </div>  <!-- End .pair-text-->
-
-                    <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
-                </div> <!-- End Pair-->
-
-
-                <!-- Begin Pair-->
-                <div id="tarkington" class="row pair-container" data-name="tarkington" data-lat="39.827324696760776" data-lng="-86.1568021774292" data-zoom="16">
-                    <div class="pair-img large-12 medium-12 small-12 columns">
-                        <h3>Tarkington</h3>
-                        <div class="pair-img-container">
-                            <img src="http://cdn.felixandiris.com/tn_-----images--W--Tarkington-GUN-02---jpg_w705.jpg" alt="Tarkington"/>
-                        </div>
-                    </div>
-
-                    <!-- .pair-text-->
-                    <div class="large-12 medium-12 small-12 columns pair-text">
-                        This is about the product!
-                        <div class="arrow-left">
-                            <img src="arrows/arrow-left.png" alt=""/>
-                        </div>
-                    </div>  <!-- End .pair-text-->
-
-                    <!--<div class="pair-info large-3 medium-4 small-6 pull columns"></div>-->
-                </div> <!-- End Pair-->
-
-
+                </div>
             </div> <!-- End .glasses-container -->
         </div> <!-- end .row-->
 
@@ -196,8 +200,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv5IPzK4LwWs4dgdXCnOfXLFf7C0TBfSA"></script>
-    <script src="list.js"></script>
-    <script src="brendan.js"></script>
-    <script src="functions.js"></script>
+    <script src="js/idangerous.swiper.min.js"></script>
+
+    <script src="js/brendan.js"></script>
+    <script src="js/list.js"></script>
 </body>
 </html>
