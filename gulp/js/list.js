@@ -1,36 +1,36 @@
 $(document).ready(function() {
 
-    if(viewPort < 642) {
+    if(viewPort < 642 || true) {
         window.mySwiper = new Swiper('.swiper-container',{
-            mode:'horizontal',
+            direction:'horizontal',
             loop: true,
             //pagination: '#dot-inner',
             //paginationClickable: true,
             keyboardControl: true,
             autoplay: false,
-            autoplayDisableInteraction: true,
-            onSlideChangeStart: function(swiper){
-                console.log('change!');
-                console.log(mySwiper.activeSlide() + ' is active -----------------------')
-
-                name = mySwiper.activeSlide().data('name');
-                console.log(name + ' is name of active slide');
-                activePair = window[name];
-                console.log(map.getCenter().k)
-                console.log(activePair.center.lat)
-
-                if (map.getCenter().k !== activePair.center.lat) {
-                    if (activePair.previous) {
-                        activePair.previous.reset();
-                    }
-                    if (activePair.next) {
-                        activePair.next.reset();
-                    }
-                    activePair.highlight();
-
-                }
-            }
+            autoplayDisableInteraction: true
         });
+        mySwiper.onSlideChangeStart = function(swiper){
+            console.log('change!');
+            console.log(mySwiper.activeSlide() + ' is active -----------------------')
+
+            name = mySwiper.activeSlide().data('name');
+            console.log(name + ' is name of active slide');
+            activePair = window[name];
+            console.log(map.getCenter().k)
+            console.log(activePair.center.lat)
+
+            if (map.getCenter().k !== activePair.center.lat) {
+                if (activePair.previous) {
+                    activePair.previous.reset();
+                }
+                if (activePair.next) {
+                    activePair.next.reset();
+                }
+                activePair.highlight();
+
+            }
+        };
 
         $('.arrow-left').on('click', function() {
             console.log('click!');
