@@ -1,6 +1,10 @@
 @media only screen and (max-width: 414px) {
-  body {
+  html body {
     background: none;
     background-color: orange;
+    .main-content-container {
+      margin:0 45px 0px 0px;
+      overflow:hidden;
+    }
   }
 }

@@ -4107,9 +4107,15 @@ html body .container {
   margin: 0 auto;
 }
 html body #intro-text article {
-  margin: 60px;
-  padding: 0px 30px;
+  margin: 60px 0;
+  padding: 0px 50px;
   text-align: center;
+}
+html body .main-content-container {
+  margin: 0 75px;
+  overflow: hidden;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
 }
 html body .row {
   width: 100%;
@@ -4135,13 +4141,29 @@ html body .row #info {
 html body .row #info p {
   margin: 50px 20px auto 20px;
 }
+html body #glasses-container.swiper-container-h {
+  z-index: -1;
+  height: 0px;
+  overflow: hidden;
+  bottom: 320px;
+}
+html body #glasses-container.swiper-container-h .swiper-wrapper {
+  height: 244px;
+}
 html body #glasses-container {
+  background-color: #fff;
   text-align: center;
   max-height: 500px;
   overflow-y: scroll;
   -ms-overflow-y: scroll;
   overflow-x: hidden;
   -ms-overflow-x: hidden;
+}
+html body #glasses-container .swiper-wrapper {
+  background-color: #fff;
+}
+html body #glasses-container .pair-container {
+  background-color: #fff;
 }
 html body #glasses-container .pair-container h3 {
   margin: 25px auto 0px auto;
@@ -4161,7 +4183,7 @@ html body #glasses-container .pair-container .pair-text {
   top: 60px;
   background-color: #FD7C08;
   height: 190px;
-  padding: 15px 30px;
+  padding: 15px 30% 15px 15%;
   -webkit-transition: right 0.75s ease;
           transition: right 0.75s ease;
 }
@@ -4170,7 +4192,6 @@ html body #glasses-container .pair-container .pair-text .arrow-left {
   top: 35%;
   width: 45px;
   padding: 10px;
-  cursor: pointer;
   cursor: hand;
   color: white;
   font-size: 30px;
@@ -4193,7 +4214,9 @@ html body #glasses-container .pair-container:last-child {
   padding-bottom: 220px;
 }
 html body footer {
-  padding: 60px 30px 20px 30px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 30px 50px 20px 50px;
   text-align: center;
 }
 
@@ -4203,34 +4226,170 @@ html body footer {
     background-color: blue;
   }
 }
-@media only screen and (max-width: 1020px) {
-  body {
+@media only screen and (max-width: 1024px) {
+  html body {
     background: none;
-    background-color: green;
-  }
-}
-@media only screen and (max-width: 910px) {
-  .swiper-container {
-    width: 50%;
-  }
-}
-@media only screen and (max-width: 641px) {
-  body {
-    background: none;
-    background-color: yellow;
+    background-color: #FD7C08;
     /* Specify Swiper's Size: */
   }
-  body .swiper-container, body .swiper-slide {
+  html body .main-content-container {
+    border-bottom: 1px dashed #A2A49F;
+  }
+  html body .row #map-canvas {
+    height: 350px;
+  }
+  html body #glasses-container.swiper-container-v {
+    visibility: hidden;
+    margin-bottom: 20px;
+  }
+  html body #glasses-container.swiper-container-h {
+    z-index: 2;
+    height: 0px;
+    overflow: visible;
+  }
+  html body #glasses-container.swiper-container-h .swiper-wrapper {
+    height: 340px;
+  }
+  html body #glasses-container.swiper-container-h .swiper-wrapper .pair-container .pair-img-container {
+    border-bottom: none;
+  }
+  html body #glasses-container, html body .swiper-slide {
     width: 100%;
-    height: 231px;
+    height: 320px;
+    max-height: 320px;
     overflow: hidden;
     margin: 0px !important;
     padding: 0px !important;
   }
+  html body #intro-text {
+    padding: 0 30px;
+  }
+  html body footer {
+    padding: 30px;
+  }
+}
+@media only screen and (max-width: 910px) {
+  html body {
+    /* Specify Swiper's Size: */
+  }
+  html body #glasses-container.swiper-container-v {
+    visibility: hidden;
+    margin-bottom: 20px !important;
+  }
+  html body #glasses-container.swiper-container-h {
+    z-index: 2;
+    height: 0px;
+    overflow: visible;
+    bottom: 310px;
+  }
+  html body #glasses-container.swiper-container-h .swiper-wrapper {
+    height: 290px;
+  }
+  html body #glasses-container, html body .swiper-slide {
+    width: 100%;
+    height: 290px;
+    max-height: 320px;
+    overflow: hidden;
+  }
+}
+@media only screen and (max-width: 768px) {
+  html body {
+    /* Specify Swiper's Size: */
+  }
+  html body #glasses-container.swiper-container-h {
+    z-index: 2;
+    height: 0px;
+    overflow: visible;
+    bottom: 270px;
+  }
+  html body #glasses-container.swiper-container-h .swiper-wrapper {
+    height: 250px;
+  }
+  html body #glasses-container, html body .swiper-slide {
+    height: 250px;
+  }
+}
+@media only screen and (max-width: 641px) {
+  html body {
+    background: none;
+    background-color: #FD7C08;
+    /* Specify Swiper's Size: */
+  }
+  html body .main-content-container {
+    margin: 0 50px;
+    overflow: hidden;
+  }
+  html body .row #map-canvas {
+    height: 350px;
+  }
+  html body #glasses-container.swiper-container-h {
+    z-index: 2;
+    height: 0px;
+    overflow: visible;
+    bottom: 245px;
+  }
+  html body #glasses-container.swiper-container-h .swiper-wrapper {
+    height: 225px;
+  }
+  html body #glasses-container, html body .swiper-slide {
+    height: 225px;
+  }
+  html body #intro-text {
+    padding: 0 20px;
+  }
+  html body #intro-text article {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  html body {
+    /* Specify Swiper's Size: */
+  }
+  html body .main-content-container {
+    margin: 0 50px;
+    overflow: hidden;
+  }
+  html body #glasses-container.swiper-container-h {
+    z-index: 2;
+    height: 0px;
+    overflow: visible;
+    bottom: 235px;
+  }
+  html body #glasses-container.swiper-container-h .swiper-wrapper {
+    height: 215px;
+  }
+  html body #glasses-container, html body .swiper-slide {
+    height: 215px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  html body {
+    /* Specify Swiper's Size: */
+  }
+  html body .main-content-container {
+    margin: 0 45px 0px 0px;
+    overflow: hidden;
+  }
+  html body #glasses-container.swiper-container-h {
+    z-index: 2;
+    height: 0px;
+    overflow: visible;
+    bottom: 215px;
+  }
+  html body #glasses-container.swiper-container-h .swiper-wrapper {
+    height: 195px;
+  }
+  html body #glasses-container, html body .swiper-slide {
+    height: 195px;
+  }
 }
 @media only screen and (max-width: 414px) {
-  body {
+  html body {
     background: none;
     background-color: orange;
+  }
+  html body .main-content-container {
+    margin: 0 45px 0px 0px;
+    overflow: hidden;
   }
 }

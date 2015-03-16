@@ -1,7 +1,8 @@
 console.log('brendan!')
 var standardColor = '#92D300';
 var highlightColor = '#FD7C08';
-window.viewPort = $(document).width();
+    viewPort = $(document).width();
+    change = false;
 $(document).ready(function() {
 
     // Load Map
@@ -108,6 +109,7 @@ $(document).ready(function() {
         window.map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
+
         /* Polyline
         //////////////////////////////////////////////*/
         meridianCoords = [
@@ -185,7 +187,7 @@ $(document).ready(function() {
         window.meridian = {
             name: 'meridian',
             el: function() {
-            return $('#' + this.name);
+            return $('.' + this.name);
             },
             center: {lat: 39.76841991769641, lng: -86.15808963775635},
             zoom: 15,
@@ -227,6 +229,7 @@ $(document).ready(function() {
                  
             },
             highlight: function() {
+                unhighlight(this.el());
                 meridianPoly.setMap(null);
 
                 this.poly.strokeColor = this.highlightColor;
@@ -257,7 +260,7 @@ $(document).ready(function() {
             moveToSlide: function () {
                 console.log('move Slide')
                 var index = $('.swiper-slide').index(this.el()) - 1;
-                mySwiper.swipeTo(index, 500);
+                mySwiper.slideTo(index, 500);
             }
         };
 
@@ -292,8 +295,9 @@ $(document).ready(function() {
         window.broadRipple = {
             name: 'broadRipple',
             el: function() {
-                return $('#' + this.name);
-            },            center: {lat: 39.86850990258248, lng: -86.13418579101562},
+                return $('.' + this.name);
+            },
+            center: {lat: 39.86850990258248, lng: -86.13418579101562},
             zoom: 15,
             coords: broadRippleCoords,
             type: 'line',
@@ -319,11 +323,11 @@ $(document).ready(function() {
 
                 this.marker = new google.maps.Marker({
                     position: myLatlng,
-                    title:"Broad Ripple!",
+                    title:"Broad Ripple",
                     
                     icon: 'images/marker.png'
                 });
-
+                this.constructInfoWindow(this.marker);
                 this.marker.setMap(map);
 
                 if (this.next) {
@@ -334,6 +338,7 @@ $(document).ready(function() {
                  
             },
             highlight: function() {
+                unhighlight(this.el());
                 broadRipplePoly.setMap(null);
                 this.polyMap.setMap(null);
 
@@ -366,7 +371,29 @@ $(document).ready(function() {
             moveToSlide: function () {
                 console.log('move Slide')
                 var index = $('.swiper-slide').index(this.el()) - 1;
-                mySwiper.swipeTo(index, 500);
+                mySwiper.slideTo(index, 500);
+            },
+            contentString: [
+                '<div class="content">'+
+                '<div class="siteNotice">'+
+                '</div>'+
+                '<h1 class="firstHeading" class="firstHeading">Broad Ripple</h1>'+
+                '<div class="bodyContent">'+
+                '<p style="display: inline-block;width:49%;">Located in northern Indy, Broad Ripple is home to a fun mix'+
+                'of art galleries, restaurants, comedy clubs,  local shopping'+
+                'venues, and bars.  It’s a popular destination for those seeking'+
+                'some fun on the weekend.</p>'+
+                '<img style="display: inline-block;width:49%; vertical-align:top" src="http://cdn.visitindy.com/web/2014/4/25/broad-ripple-village-1.jpg">'+
+                '</div>'+
+                '</div>'
+            ].join(''),
+            constructInfoWindow: function(marker) {
+                var infowindow = new google.maps.InfoWindow({
+                    content: this.contentString
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map,marker);
+                });
             }
         };
 
@@ -479,7 +506,7 @@ $(document).ready(function() {
         window.foxHill = {
             name: 'foxHill',
             el: function() {
-                return $('#' + this.name);
+                return $('.' + this.name);
             },
             center: {lat: 39.86475483576405, lng: -86.18375301361084},
             zoom: 14,
@@ -522,6 +549,8 @@ $(document).ready(function() {
                  
             },
             highlight: function() {
+                unhighlight(this.el());
+
                 foxHillPoly.setMap(null);
                 this.polyMap.setMap(null);
 
@@ -553,7 +582,7 @@ $(document).ready(function() {
             },
             moveToSlide: function () {
                 var index = $('.swiper-slide').index(this.el()) - 1;
-                mySwiper.swipeTo(index, 500);
+                mySwiper.slideTo(index, 500);
             }
         };
 
@@ -684,7 +713,7 @@ $(document).ready(function() {
         kessler = {
             name: 'kessler',
             el: function() {
-                return $('#' + this.name);
+                return $('.' + this.name);
             },
             center: {lat: 39.862053695703196, lng: -86.14397048950195},
             zoom: 13,
@@ -727,6 +756,8 @@ $(document).ready(function() {
                  
             },
             highlight: function() {
+                unhighlight(this.el());
+
                 kesslerPoly.setMap(null);
                 this.polyMap.setMap(null);
 
@@ -759,7 +790,7 @@ $(document).ready(function() {
             moveToSlide: function () {
                 console.log('move Slide')
                 var index = $('.swiper-slide').index(this.el()) - 1;
-                mySwiper.swipeTo(index, 500);
+                mySwiper.slideTo(index, 500);
             }
         };
 
@@ -880,8 +911,9 @@ $(document).ready(function() {
         window.butler = {
             name: 'butler',
             el: function() {
-                return $('#' + this.name);
-            },            center: {lat: 39.83882609235166, lng: -86.17130756378174},
+                return $('.' + this.name);
+            },
+            center: {lat: 39.83882609235166, lng: -86.17130756378174},
             zoom: 14,
             coords: butlerCoords,
             type: 'gon',
@@ -924,6 +956,8 @@ $(document).ready(function() {
                  
             },
             highlight: function() {
+                unhighlight(this.el());
+
                 butlerPolygon.setMap(null)
                 this.polyMap.setMap(null);
 
@@ -959,7 +993,7 @@ $(document).ready(function() {
             moveToSlide: function () {
                 console.log('move Slide')
                 var index = $('.swiper-slide').index(this.el()) - 1;
-                mySwiper.swipeTo(index, 500);
+                mySwiper.slideTo(index, 500);
             }
         };
 
@@ -1023,8 +1057,9 @@ $(document).ready(function() {
         window.fountainSquare = {
             name: 'fountainSquare',
             el: function() {
-                return $('#' + this.name);
-            },            center: {lat: 39.7521722541479, lng: -86.13959312438965},
+                return $('.' + this.name);
+            },
+            center: {lat: 39.7521722541479, lng: -86.13959312438965},
             zoom: 15,
             coords: fountainSquareCoords,
             type: 'gon',
@@ -1067,6 +1102,8 @@ $(document).ready(function() {
                  
             },
             highlight: function() {
+                unhighlight(this.el());
+
                 fountainSquarePolygon.setMap(null)
                 this.polyMap.setMap(null);
 
@@ -1102,7 +1139,7 @@ $(document).ready(function() {
             moveToSlide: function () {
                 console.log('move Slide')
                 var index = $('.swiper-slide').index(this.el()) - 1;
-                mySwiper.swipeTo(index, 500);
+                mySwiper.slideTo(index, 500);
             }
         };
 
@@ -1131,7 +1168,7 @@ $(document).ready(function() {
         window.tarkington = {
             name: 'tarkington',
             el: function() {
-                return $('#' + this.name);
+                return $('.' + this.name);
             },            center: {lat: 39.827324696760776, lng: -86.1568021774292},
             zoom: 16,
             coords: tarkingtonCoords,
@@ -1175,6 +1212,8 @@ $(document).ready(function() {
                  
             },
             highlight: function() {
+                unhighlight(this.el());
+
                 tarkingtonPolygon.setMap(null)
                 this.polyMap.setMap(null);
 
@@ -1210,7 +1249,7 @@ $(document).ready(function() {
             moveToSlide: function () {
                 console.log('move Slide')
                 var index = $('.swiper-slide').index(this.el()) - 1;
-                mySwiper.swipeTo(index, 500);
+                mySwiper.slideTo(index, 500);
             }
         };
 
@@ -1254,7 +1293,7 @@ $(document).ready(function() {
                     for(var i = 0; i < locations.length; i++) {
 
                         if(locations[i].marker === this) {
-                            window[mySwiper.activeSlide().data('name')].reset();
+                            window[$(mySwiper.slides[mySwiper.activeIndex]).data('name')].reset();
 
                             locations[i].highlight();
                             locations[i].moveToSlide();
@@ -1268,7 +1307,24 @@ $(document).ready(function() {
                 link = link.next
             } // End While Loop
         } // End locationsArrayAndListener
-        locationsArrayAndListener(broadRipple)
+        locationsArrayAndListener(broadRipple);
+
+        // Creating Swiper
+        if(viewPort < 642) createSwiper(true);
+        else createSwiper(false);
+
+        function unhighlight($el) {
+            //console.log($el);
+            old = window[$('.highlighted').data('name')];
+            //console.log(old);
+            if(typeof old != 'undefined') {
+                //console.log(old)
+                old.reset();
+            }
+            $('.highlighted').removeClass('highlighted');
+            $el.addClass('highlighted')
+        }
+
 
         ///* Add Coordinate on click
         // //////////////////////////////////////////////*/
@@ -1302,8 +1358,135 @@ $(document).ready(function() {
         //
         //
         //});
-
     }
+
+    window.createSwiper = function(small) {
+        window.mySwiper_h = new Swiper('.swiper-container-h',{
+            direction:'horizontal',
+            loop: false,
+            //pagination: '#dot-inner',
+            //paginationClickable: true,
+            keyboardControl: true,
+            autoplay: false,
+            autoplayDisableInteraction: true,
+            mousewheelControl: true,
+            slidesPerView: 1,
+            onClick: function(swiper, event) {
+                //console.log('change!');
+                var last = $(swiper.slides[swiper.activeIndex]).data('name');
+                //console.log(last);
+                swiper.updateActiveIndex()
+                console.log(swiper.activeIndex)
+
+                name = $(swiper.slides[swiper.activeIndex]).data('name');
+                //console.log(name + ' is active -----------------------')
+                //console.log(name + ' is name of active slide');
+                activePair = window[name];
+                //console.log(map.getCenter().k)
+                //console.log(activePair.center.lat)
+
+                if (map.getCenter().k !== activePair.center.lat) {
+                    //if (activePair.previous) {
+                    //    activePair.previous.reset();
+                    //}
+                    //if (activePair.next) {
+                    //    activePair.next.reset();
+                    //}
+                    activePair.highlight();
+
+                }
+            }
+            //onDestroy: function() {
+            //    $('.swiper-slide').css('style', '');
+            //    createSwiper(false);
+            //
+            //},
+            //onInit: function(swiper) {
+            //    console.log(swiper.params.direction);
+            //    swiper.updateSlidesSize();
+            //}
+        });
+
+        window.mySwiper = new Swiper('.swiper-container-v',{
+            direction:'vertical',
+            loop: false,
+            slidesPerView: 2,
+            stimulateTouch:false,
+            mousewheelControl: true,
+            //pagination: '#dot-inner',
+            //paginationClickable: true,
+            keyboardControl: true,
+            autoplay: false,
+            autoplayDisableInteraction: true,
+            slideToClickedSlide: true,
+            onClick: function(swiper, event) {
+                console.log('change!');
+                var last = $(swiper.slides[swiper.activeIndex]).data('name');
+                console.log(last);
+                swiper.updateActiveIndex()
+                console.log(swiper.activeIndex)
+
+                name = $(swiper.slides[swiper.activeIndex]).data('name');
+                console.log(name + ' is active -----------------------')
+                console.log(name + ' is name of active slide');
+                activePair = window[name];
+                console.log(map.getCenter().k)
+                console.log(activePair.center.lat)
+
+                if (map.getCenter().k !== activePair.center.lat) {
+                    //if (activePair.previous) {
+                    //    activePair.previous.reset();
+                    //}
+                    //if (activePair.next) {
+                    //    activePair.next.reset();
+                    //}
+                    activePair.highlight();
+
+                }
+            }
+            //onDestroy: function() {
+            //    $('.swiper-slide').attr('style', '');
+            //        createSwiper(true);
+            //
+            //},
+            //onInit: function(swiper) {
+            //    console.log(swiper.params.direction);
+            //    swiper.updateSlidesSize();
+            //}
+        });
+    }
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    var rebootSwiper = debounce(function() {
+        console.log('resize!')
+        var newViewPort = $(document).width();
+        if(viewPort >= 642 && newViewPort < 642) {
+            console.log('big to small')
+            //mySwiper.destroy();
+        }
+        else if(viewPort < 642 && newViewPort >= 642) {
+            console.log('small to big')
+            //mySwiper.destroy();
+        }
+        else {change=false}
+    }, 150);
+
+    window.addEventListener('resize', rebootSwiper);
+
     google.maps.event.addDomListener(window, 'load', initialize);
 
 });

@@ -64,12 +64,17 @@ html body {
 
   #intro-text {
     article {
-      margin: 60px;
-      padding: 0px 30px;
+      margin: 60px 0;
+      padding: 0px 50px;
       text-align: center;
     }
   }
-
+  .main-content-container {
+    margin:0 75px;
+    overflow:hidden;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+  }
   .row {
     width:100%;
     position: relative;
@@ -97,17 +102,31 @@ html body {
       }
     }
   }
-
+  #glasses-container.swiper-container-v {
+//    display:block;
+  }
+  #glasses-container.swiper-container-h {
+    z-index: -1;
+    height:0px;
+    overflow: hidden;
+    bottom:320px;
+    .swiper-wrapper {
+      height:244px;
+    }
+  }
   #glasses-container {
+    background-color: #fff;
     text-align: center;
     max-height: 500px;
     overflow-y: scroll;
     -ms-overflow-y: scroll;
     overflow-x: hidden;
     -ms-overflow-x: hidden;
-
+    .swiper-wrapper {
+      background-color: #fff;
+    }
     .pair-container {
-
+      background-color: #fff;
       h3 {
         margin: 25px auto 0px auto;
       }
@@ -128,7 +147,7 @@ html body {
         top: 60px;
         background-color: $orange;
         height: 190px;
-        padding: 15px 30px;
+        padding: 15px 30% 15px 15%;
         transition: right 0.75s ease;
 
         .arrow-left{
@@ -136,7 +155,6 @@ html body {
           top: 35%;
           width: 45px;
           padding: 10px;
-          cursor: pointer;
           cursor: hand;
           color: white;
           font-size: 30px;
@@ -173,7 +191,9 @@ html body {
     }
   }
   footer {
-    padding: 60px 30px 20px 30px;
+    margin-top:30px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 30px 50px 20px 50px;
     text-align: center;
   }
 }
@@ -181,5 +201,8 @@ html body {
 @import "1280-Media";
 @import "1020-Media";
 @import "910-Media";
+@import "768-Media";
 @import "641-Media";
+@import "600-Media";
+@import "500-Media";
 @import "414-Media";
